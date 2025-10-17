@@ -1,53 +1,4 @@
-local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/Cityrage/goldfarm_boogabooga/refs/heads/main/rayfield'))()
-local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
-local HWIDtable = loadstring(game:HttpGet("https://raw.githubusercontent.com/lost-ll/hwidpullll/refs/heads/main/ftgvhnbjm"))()
 
-
-
-
-local Window = Rayfield:CreateWindow({
-   Name = "Whitelist",
-   Icon = "baseline", -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
-   LoadingTitle = "CtrlHub",
-   LoadingSubtitle = "Loading...",
-   Theme = "Ocean", -- Check https://docs.sirius.menu/rayfield/configuration/themes
-
-   DisableRayfieldPrompts = false,
-   DisableBuildWarnings = false, -- Prevents Rayfield from warning when the script has a version mismatch with the interface
-
-})
-
-
-local Tab = Window:CreateTab("Whitelist", "cable") -- Title, Image
-
-
-local Button = Tab:CreateButton({
-   Name = "Get HWID",
-   Callback = function()
-       Rayfield:Notify({
-          Title = "Your HWID is",
-          Content = ""..HWID.."",
-          Duration = 6.5,
-          Image = "bookmark-check",
-        })
-     wait(0.3)
-     Rayfield:Notify({
-          Title = "Hwid",
-          Content = "Copied to clipboard",
-          Duration = 3,
-          Image = "bookmark-check",
-        })
-     setclipboard(HWID)
-   end,
-})
-
-
-local Button = Tab:CreateButton({
-   Name = "Load script",
-   Callback = function()
-        for i,v in pairs(HWIDtable) do
-          if v == HWID then
-            Rayfield:Destroy()
         local url = "https://raw.githubusercontent.com/makarloxezz-cpu/goldffram/refs/heads/main/main.lua"
 local orig = game:HttpGet(url)
 orig = orig:gsub("local%s+Library%s*=", "Library =")
@@ -1313,15 +1264,4 @@ else
     fn()
 end
 
-            print("script loaded succesfull")
-          else
-          Rayfield:Notify({
-                  Title = "Error",
-                  Content = "You are not whitelisted",
-                  Image = "badge-alert",
-                  Duration = 6.5,
-                })
-      end
-    end    
-  end,
-})
+         
